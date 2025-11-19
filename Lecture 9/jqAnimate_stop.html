@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery stop() Demo (Simple)</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+  <style>
+    #stage {
+      position: relative;
+      width: 700px;
+      height: 100px;
+      border: 1px solid #aaa;
+      margin-bottom: 10px;
+    }
+    #box {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: red;
+      top: 30px;
+      left: 0;
+    }
+    .mark {
+      position: absolute;
+      width: 1px;
+      top: 0;
+      bottom: 0;
+      background: blue;
+      opacity: 0.4;
+    }
+    .label {
+      position: absolute;
+      top: 80px;
+      font-size: 12px;
+      transform: translateX(-10px);
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div id="box"></div>
+    <!-- 각 애니메이션 종료 위치 표시 -->
+    <div class="mark" style="left:200px;"></div><div class="label" style="left:200px;">1번</div>
+    <div class="mark" style="left:400px;"></div><div class="label" style="left:400px;">2번</div>
+    <div class="mark" style="left:600px;"></div><div class="label" style="left:600px;">3번</div>
+  </div>
+
+  <label><input type="checkbox" id="clearQueue"> clearQueue</label><br>
+  <label><input type="checkbox" id="goToEnd"> goToEnd</label><br>
+  <button id="startBtn">Start</button>
+  <button id="stopBtn">Stop</button>
+
+  <script>
+    $(document).ready(function() {
+      let clearQueue = false;
+      let goToEnd = false;
+
+      $('#clearQueue').change(function() {
+        clearQueue = $(this).prop('checked');
+      });
+      $('#goToEnd').change(function() {
+        goToEnd = $(this).prop('checked');
+      });
+
+      $('#startBtn').click(function() {
+        $('#box').css({ left: 0 }); // 초기화
+        $('#box')
+          .animate({ left: 200 }, 1000)
+          .animate({ left: 400 }, 1000)
+          .animate({ left: 600 }, 1000);
+      });
+
+      $('#stopBtn').click(function() {
+        $('#box').stop(clearQueue, goToEnd);
+      });
+    });
+  </script>
+</body>
+</html>
