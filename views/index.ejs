@@ -10,14 +10,14 @@
   <h2>1. GET 요청 (검색)</h2>
   <form action="/search" method="get">
     <input type="text" name="v1" placeholder="검색어 입력">
-    <input type="text" name="v2" placeholder="검색어 입력">
-    <br><button>검색</button>
+    <br><input type="text" name="v2" placeholder="검색어 입력">
+    <br><button>제출</button>
   </form>
 
   <h2>2. POST 요청 (댓글 작성)</h2>
   <form action="/submit" method="post">
-    <textarea name="text" rows="4" cols="40" placeholder="서버로 보낼 내용"></textarea><br>
-    <textarea name="text" rows="4" cols="40" placeholder="서버로 보낼 내용"></textarea><br>
+    <input type="number" name="v1" placeholder="숫자 입력"><br>
+    <input type="number" name="v1" placeholder="숫자 입력"><br>
     <button>POST 요청 보내기</button>
   </form>
 </body>
