@@ -18,11 +18,11 @@ const v2 = req.query.value2;
 res.render('get_result', { v1, v2 });
 });
 
-app.post("/submit-form", (req, res) => {
+app.post("/submit", (req, res) => {
 const v1 = Number(req.body.value1);
 const v2 = Number(req.body.value2);
 const r1 = v1 % v2;
-res.render("form_result", { r1, v1, v2 });
+res.render("post_result", { r1, v1, v2 });
 });
 
 app.get("/api/data", (req, res) => {
